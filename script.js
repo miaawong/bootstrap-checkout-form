@@ -17,17 +17,94 @@ const sushiSet = {
   },
 };
 
+const stateAbbreviations = [
+  "AL",
+  "AK",
+  "AS",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "DC",
+  "FM",
+  "FL",
+  "GA",
+  "GU",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MH",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "MP",
+  "OH",
+  "OK",
+  "OR",
+  "PW",
+  "PA",
+  "PR",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VI",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
+];
+
 const totalPriceEl = document.querySelector(".total-price");
 const sushiSetEl = document.querySelector(".sushi-set");
 const descEl = document.querySelector(".desc");
+const form = document.querySelector(".needs-validation");
 const onSelect = () => {
-  // probably better to have an id since you could have multiple selects
   let value = document.querySelector("#selectSet").value;
-  // if object has property of value
-  // return the value
   if (sushiSet.hasOwnProperty(value)) {
     totalPriceEl.innerHTML = "$" + sushiSet[value].price.toFixed(2);
     sushiSetEl.innerHTML = "Sushi Set: " + value.toUpperCase();
     descEl.innerHTML = sushiSet[value].desc;
   }
 };
+
+form.addEventListener("submit", e => {
+  if (!form.checkValidity()) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  form.classList.add("was-validated");
+});
+
+const stateSelect = document.querySelector("#state");
+
+stateAbbreviations.forEach(abbrev => {
+  let option = document.createElement("option");
+  option.value = abbrev;
+  option.innerHTML = abbrev;
+  stateSelect.appendChild(option);
+});

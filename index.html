@@ -147,7 +147,7 @@
             <p>Sushi Miako</p>
             <p>123 2nd Ave Seattle,WA</p>
             <p><b>Pickup</b> in <b>15 minutes</b></p>
-            <form>
+            <form class="needs-validation" novalidate>
               <div class="mb-3">
                 <label htmlFor="first-name" class="form-label"
                   >First Name</label
@@ -157,7 +157,9 @@
                   class="form-control"
                   id="first-name"
                   aria-describedby="first-name"
+                  required
                 />
+                <div class="invalid-feedback">First name is required</div>
               </div>
               <div class="mb-3">
                 <label htmlFor="last-name" class="form-label">Last Name</label>
@@ -166,7 +168,9 @@
                   class="form-control"
                   id="last-name"
                   aria-describedby="last-name"
+                  required
                 />
+                <div class="invalid-feedback">Last name is required</div>
               </div>
               <div class="mb-3">
                 <label htmlFor="email" class="form-label">Email</label>
@@ -175,7 +179,9 @@
                   class="form-control"
                   id="email"
                   aria-describedby="email"
+                  required
                 />
+                <div class="invalid-feedback">Email is required</div>
               </div>
               <div class="mb-3">
                 <label htmlFor="phone" class="form-label">Phone</label>
@@ -184,7 +190,9 @@
                   class="form-control"
                   id="phone"
                   aria-describedby="phone number"
+                  required
                 />
+                <div class="invalid-feedback">Phone number is required</div>
               </div>
               <div class="mb-3">
                 <label htmlFor="address" class="form-label">Address</label>
@@ -193,17 +201,25 @@
                   class="form-control"
                   id="address"
                   aria-describedby="address"
+                  required
                 />
+                <div class="invalid-feedback">Address is required</div>
               </div>
               <div class="d-flex mb-3">
                 <div class="col me-1">
                   <label htmlFor="state" class="form-label">State</label>
-                  <input
-                    type="text"
-                    class="form-control"
+                  <select
+                    class="form-select"
+                    aria-label="select state"
                     id="state"
-                    aria-describedby="state"
-                  />
+                    required
+                  >
+                    <option disabled selected>Choose</option>
+                  </select>
+
+                  <div class="invalid-feedback">
+                    Please select a valid state
+                  </div>
                 </div>
                 <div class="col">
                   <label htmlFor="zipcode" class="form-label">Zipcode</label>
@@ -212,7 +228,9 @@
                     class="form-control"
                     id="zipcode"
                     aria-describedby="zipcode"
+                    required
                   />
+                  <div class="invalid-feedback">Zipcode is required.</div>
                 </div>
               </div>
               <div class="mb-3">
@@ -226,7 +244,11 @@
                   class="form-control"
                   id="address"
                   aria-describedby="address"
+                  required
                 />
+                <div class="invalid-feedback">
+                  Credit Card number is required
+                </div>
               </div>
               <div class="mb-3">
                 <div class="d-flex">
@@ -239,7 +261,10 @@
                       class="form-control"
                       id="cc-expiration"
                       aria-describedby="cc-expiration"
+                      placeholder="MM/YY"
+                      required
                     />
+                    <div class="invalid-feedback">Expiration is required</div>
                   </div>
                   <div>
                     <label htmlFor="cc-cvv" class="form-label">CVV</label>
@@ -248,11 +273,13 @@
                       class="form-control"
                       id="cc-cvv"
                       aria-describedby="cc-cvv"
+                      required
                     />
+                    <div class="invalid-feedback">CVV is required</div>
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
